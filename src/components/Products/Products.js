@@ -1,9 +1,8 @@
 import Product from "./Product";
-import { Container } from "./styled";
 
 const Products = (props) => {
   return (
-    <Container className="w-1/2 mx-auto bg-gray-300 flex flex-col">
+    <div className="w-1/2 mx-auto bg-gray-300 flex flex-col">
       <Product
         id="1"
         name="Pen"
@@ -25,7 +24,7 @@ const Products = (props) => {
         description="Pen in different colors"
         price="5"
       />
-    </Container>
+    </div>
   );
 };
 
