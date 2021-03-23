@@ -3,7 +3,7 @@ import { Container } from "./styled";
 
 const Products = (props) => {
   return (
-    <Container>
+    <Container className="w-1/2 mx-auto bg-gray-300 flex flex-col">
       <Product
         id="1"
         name="Pen"
