@@ -39,7 +39,7 @@
     ]
   },
   "engines": {
-    "node": ">=0.12"
+    "node": ">=14"
   },
   "devDependencies": {
     "@tailwindcss/postcss7-compat": "^2.0.4",
