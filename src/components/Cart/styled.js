@@ -17,7 +17,7 @@ export const ProductContainer = styled.div`
 `;
 
 export const Image = styled.img`
-  width: 150px;
+  width: 50px;
 `;
 
 export const TextBody = styled.div`
