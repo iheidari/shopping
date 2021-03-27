@@ -15,17 +15,15 @@ function App() {
 
   return (
     <Router>
-      <div className="p-4 w-96 mx-auto">
-        <Menu cartCount={cart.length} />
-        <Switch>
-          <Route path="/" exact>
-            <Products addToCart={addToCart} />
-          </Route>
-          <Route path="/cart">
-            <Cart cart={cart} removeFromCart={removeFromCart} />
-          </Route>
-        </Switch>
-      </div>
+      <Menu cartCount={cart.length} />
+      <Switch>
+        <Route path="/" exact>
+          <Products addToCart={addToCart} />
+        </Route>
+        <Route path="/cart">
+          <Cart cart={cart} removeFromCart={removeFromCart} />
+        </Route>
+      </Switch>
     </Router>
   );
 }
