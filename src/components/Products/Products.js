@@ -19,7 +19,7 @@ const mockData = [
     price: "10",
   },
   {
-    id: 1,
+    id: 3,
     name: "Cup",
     image:
       "https://images-na.ssl-images-amazon.com/images/I/81A%2Bbhs4jkL._AC_SL1500_.jpg",
@@ -28,15 +28,9 @@ const mockData = [
   },
 ];
 
-const Products = (props) => {
+const Products = ({ addToCart }) => {
   const productsComponent = mockData.map((product) => (
-    <Product
-      key={product.id}
-      name={product.name}
-      description={product.description}
-      image={product.image}
-      price={product.price}
-    />
+    <Product key={product.id} addToCart={addToCart} product={product} />
   ));
   return <Container>{productsComponent}</Container>;
 };

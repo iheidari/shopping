@@ -9,7 +9,7 @@ import {
   Button,
 } from "./styled";
 
-const Product = ({ product, addToCart }) => {
+const CartItem = ({ product, removeFromCart }) => {
   return (
     <ProductContainer>
       <div>
@@ -21,10 +21,10 @@ const Product = ({ product, addToCart }) => {
       </TextBody>
       <div>
         <Price>${product.price}</Price>
-        <Button onClick={() => addToCart(product)}>Buy</Button>
+        <Button onClick={() => removeFromCart(product)}>Remove</Button>
       </div>
     </ProductContainer>
   );
 };
 
-export default Product;
+export default CartItem;
