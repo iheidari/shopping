@@ -11,7 +11,10 @@ function App() {
     setCart((state) => [...state, product]); //async
   };
 
-  const removeFromCart = (product) => {};
+  const removeFromCart = (product) => {
+    const items = cart.filter((item) => product.id !== item.id);
+    setCart(items);
+  };
 
   return (
     <Router>
