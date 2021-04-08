@@ -1,20 +1,26 @@
-import { Link } from "react-router-dom";
+import {
+  MenuContainer,
+  MenuItem,
+  MenuLink,
+  NavigationBar,
+  Title,
+} from "./styled";
 
 const Menu = ({ cartCount }) => {
   return (
-    <nav>
-      <h1>Shopping</h1>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/cart">
-            Cart(<span>{cartCount}</span>)
-          </Link>
-        </li>
-      </ul>
-    </nav>
+    <NavigationBar>
+      <Title>Shopping</Title>
+      <MenuContainer>
+        <MenuItem>
+          <MenuLink to="/">Home</MenuLink>
+        </MenuItem>
+        <MenuItem>
+          <MenuLink to="/cart">
+            Cart<span>{cartCount ? `(${cartCount})` : ""}</span>
+          </MenuLink>
+        </MenuItem>
+      </MenuContainer>
+    </NavigationBar>
   );
 };
 
