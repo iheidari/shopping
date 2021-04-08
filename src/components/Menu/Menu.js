@@ -16,7 +16,7 @@ const Menu = ({ cartCount }) => {
         </MenuItem>
         <MenuItem>
           <MenuLink to="/cart">
-            Cart(<span>{cartCount}</span>)
+            Cart<span>{cartCount ? `(${cartCount})` : ""}</span>
           </MenuLink>
         </MenuItem>
       </MenuContainer>
