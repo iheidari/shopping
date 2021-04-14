@@ -1,5 +1,5 @@
 import CartItem from "./CartItem";
-import { Container } from "./styled";
+import { Container,Text } from "./styled";
 
 const Cart = ({ cart, removeFromCart }) => {
   if(!cart || !cart.length) {
