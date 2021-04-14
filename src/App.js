@@ -49,6 +49,7 @@ function App() {
         </Route>
         <Route path="/cart">
           <Cart cart={cart} removeFromCart={removeFromCart} />
+          <button onClick={() => setCart([])}>ClearAll</button> 
         </Route>
       </Switch>
     </Router>
