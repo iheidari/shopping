@@ -5,6 +5,14 @@ export const Container = styled.div`
   flex-wrap: wrap;
 `;
 
+export const TotalContainer = styled.div`
+  border: 1px solid gray;
+  width: 350px;
+  padding: 15px;
+  margin: 15px;
+  border-radius: 5px;
+`;
+
 export const ProductContainer = styled.div`
   display: flex;
   justify-content: space-between;
