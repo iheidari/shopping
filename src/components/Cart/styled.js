@@ -27,7 +27,10 @@ export const TextBody = styled.div`
 export const Title = styled.h3`
   font-size: 24px;
 `;
-
+export const Text = styled.h1`
+  font-size: 50px;
+  text-align: center;
+`;
 export const Description = styled.h5`
   font-size: 12px;
 `;
