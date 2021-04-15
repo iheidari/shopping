@@ -32,10 +32,11 @@ function App() {
 
     setCart(newCart.filter((item) => item.count > 0));
   };
-  // array functions:
-  // map => function(item) => run per each item and return a new array
-  // filter => function(item) => run per each item and return the item if the function return true
-  // reduce => function(accu, item), initial value =>
+
+  const removeAll = () => {
+    setCart([]);
+  };
+
   return (
     <Router>
       <Menu
@@ -48,7 +49,11 @@ function App() {
           <Products addToCart={addToCart} />
         </Route>
         <Route path="/cart">
-          <Cart cart={cart} removeFromCart={removeFromCart} />
+          <Cart
+            cart={cart}
+            removeFromCart={removeFromCart}
+            removeAll={removeAll}
+          />
         </Route>
       </Switch>
     </Router>

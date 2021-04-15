@@ -1,12 +1,44 @@
 import styled from "styled-components";
 
+export const EmptyCart = styled.div`
+  text-align: center;
+  font-size: 1.75rem;
+  margin: 15px;
+  width: 100%;
+`;
 export const Container = styled.div`
   display: flex;
+  flex-direction: column;
+`;
+
+export const TotalPrice = styled.div``;
+
+export const ClearCart = styled.button`
+  width: 100px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #ee8899;
+  &:hover {
+    background-color: #eebbbb;
+  }
+`;
+
+export const BottomRow = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px;
+`;
+
+export const CartItems = styled.div`
+  display: flex;
   flex-wrap: wrap;
+  flex-direction: row;
 `;
 
 export const ProductContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   padding: 15px;
