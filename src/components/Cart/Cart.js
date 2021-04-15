@@ -9,7 +9,7 @@ import {
 } from "./styled";
 
 const Cart = ({ cart, removeFromCart, removeAll }) => {
-  if (!cart.length) {
+  if (!cart || !cart.length) {
     return <EmptyCart>No item in the cart</EmptyCart>;
   }
 
@@ -22,7 +22,9 @@ const Cart = ({ cart, removeFromCart, removeAll }) => {
       <BottomRow>
         <TotalPrice>
           Total Price: $
-          {cart.reduce((total, item) => total + item.price * item.count, 0)}
+          {cart
+            ? cart.reduce((total, item) => total + item.price * item.count, 0)
+            : 0}
         </TotalPrice>
         <ClearCart onClick={removeAll}>Delete All</ClearCart>
       </BottomRow>

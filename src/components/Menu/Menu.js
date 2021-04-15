@@ -9,7 +9,9 @@ import {
 const Menu = ({ cartCount }) => {
   return (
     <NavigationBar>
-      <Title>Shopping</Title>
+      <MenuLink to="/" nounderline="true">
+        <Title>Shopping</Title>
+      </MenuLink>
       <MenuContainer>
         <MenuItem>
           <MenuLink to="/">Home</MenuLink>
