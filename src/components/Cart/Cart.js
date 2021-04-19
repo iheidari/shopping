@@ -13,7 +13,7 @@ import { Globalstyle } from "../Modals/Globalstyle";
 const Cart = ({
   cart,
   removeFromCart,
-  removeAll,
+  modalTrigger,
   showModal,
   setShowModal,
   deleteAll,
@@ -34,7 +34,7 @@ const Cart = ({
             ? cart.reduce((total, item) => total + item.price * item.count, 0)
             : 0}
         </TotalPrice>
-        <ClearCart onClick={removeAll}>Delete All</ClearCart>
+        <ClearCart onClick={modalTrigger}>Delete All</ClearCart>
       </BottomRow>
       <CartModal
         showModal={showModal}
