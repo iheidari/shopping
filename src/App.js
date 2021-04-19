@@ -61,8 +61,11 @@ function App() {
 
     setCart(newCart.filter((item) => item.count > 0));
   };
-
+  const [showModal, setShowModal] = useState(false);
   const removeAll = () => {
+    setShowModal((prev) => !prev);
+  };
+  const deleteAll = () => {
     setCart([]);
   };
 
@@ -85,6 +88,9 @@ function App() {
         </Route>
         <Route path="/cart">
           <Cart
+            deleteAll={deleteAll}
+            showModal={showModal}
+            setShowModal={setShowModal}
             cart={cart}
             removeFromCart={removeFromCart}
             removeAll={removeAll}
