@@ -8,8 +8,7 @@ import {
   ModalBody,
 } from "./styled";
 
-const CartModal = ({ showModal, deleteAll }) => {
-  console.log(showModal);
+const CartModal = ({ showModal, deleteAll, noChange }) => {
   return (
     <>
       {showModal ? (
@@ -22,8 +21,8 @@ const CartModal = ({ showModal, deleteAll }) => {
             </ModalBody>
             <hr />
             <ConfirmRow>
-              <ClearAll onClick={() => deleteAll()}>Yes</ClearAll>
-              <RemainAll>No</RemainAll>
+              <ClearAll onClick={deleteAll}>Yes</ClearAll>
+              <RemainAll onClick={noChange}>No</RemainAll>
             </ConfirmRow>
           </ModalContainer>
         </BackGround>

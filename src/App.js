@@ -69,6 +69,9 @@ function App() {
     setCart([]);
     setShowModal((prev) => !prev);
   };
+  const noChange = () => {
+    setShowModal(false);
+  };
 
   console.log(".............", cart);
 
@@ -90,6 +93,7 @@ function App() {
         <Route path="/cart">
           <Cart
             deleteAll={deleteAll}
+            noChange={noChange}
             showModal={showModal}
             setShowModal={setShowModal}
             cart={cart}

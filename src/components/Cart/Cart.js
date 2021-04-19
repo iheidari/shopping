@@ -17,6 +17,7 @@ const Cart = ({
   showModal,
   setShowModal,
   deleteAll,
+  noChange,
 }) => {
   if (!cart || !cart.length) {
     return <EmptyCart>No item in the cart</EmptyCart>;
@@ -40,6 +41,7 @@ const Cart = ({
         showModal={showModal}
         setShowModal={setShowModal}
         deleteAll={deleteAll}
+        noChange={noChange}
       />
       <Globalstyle />
     </Container>
