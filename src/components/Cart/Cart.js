@@ -8,7 +8,7 @@ import {
   ClearCart,
 } from "./styled";
 import CartModal from "../Modals/CartModal";
-import { Globalstyle } from "../Modals/Globalstyle";
+import { GlobalStyle } from "../Modals/styled";
 
 const Cart = ({
   cart,
@@ -43,7 +43,7 @@ const Cart = ({
         deleteAll={deleteAll}
         noChange={noChange}
       />
-      <Globalstyle />
+      <GlobalStyle />
     </Container>
   );
 };
