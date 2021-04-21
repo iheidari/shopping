@@ -1,4 +1,6 @@
 import CartItem from "./CartItem";
+import ConfirmationPopUp from "./ConfirmationPopUp";
+import { useState } from "react";
 import {
   EmptyCart,
   Container,
@@ -9,6 +11,7 @@ import {
 } from "./styled";
 
 const Cart = ({ cart, removeFromCart, removeAll }) => {
+  const [showPop, setShowPop] = useState(false);
   if (!cart || !cart.length) {
     return <EmptyCart>No item in the cart</EmptyCart>;
   }
@@ -20,13 +23,18 @@ const Cart = ({ cart, removeFromCart, removeAll }) => {
     <Container>
       <CartItems>{cartItems}</CartItems>
       <BottomRow>
-        <TotalPrice>
+      <TotalPrice>
           Total Price: $
-          {cart
-            ? cart.reduce((total, item) => total + item.price * item.count, 0)
-            : 0}
+          {cart.reduce((total, item) => total + item.price * item.count, 0)}
         </TotalPrice>
-        <ClearCart onClick={removeAll}>Delete All</ClearCart>
+        <ClearCart disabled={showPop} onClick={() => setShowPop(true)}>
+          Delete All
+        </ClearCart>
+        <ConfirmationPopUp
+          show={showPop}
+          onCancel={() => setShowPop(false)}
+          onConfirm={() => removeAll()}
+        />
       </BottomRow>
     </Container>
   );
