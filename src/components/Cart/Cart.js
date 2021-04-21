@@ -1,3 +1,4 @@
+import { useState } from "react";
 import CartItem from "./CartItem";
 import {
   EmptyCart,
@@ -10,21 +11,26 @@ import {
 import CartModal from "../Modals/CartModal";
 import { GlobalStyle } from "../Modals/styled";
 
-const Cart = ({
-  cart,
-  removeFromCart,
-  modalTrigger,
-  showModal,
-  setShowModal,
-  deleteAll,
-  noChange,
-}) => {
+const Cart = ({ cart, removeFromCart, setCart }) => {
+  const [showModal, setShowModal] = useState(false);
+  const deleteAll = () => {
+    setCart([]);
+    setShowModal((prev) => !prev);
+  };
   if (!cart || !cart.length) {
     return <EmptyCart>No item in the cart</EmptyCart>;
   }
   const cartItems = cart.map((item) => (
     <CartItem key={item.id} product={item} removeFromCart={removeFromCart} />
   ));
+  const modalTrigger = () => {
+    setShowModal((prev) => !prev);
+  };
+
+  const noChange = () => {
+    setShowModal(false);
+  };
+
   return (
     <Container>
       <CartItems>{cartItems}</CartItems>
@@ -39,7 +45,6 @@ const Cart = ({
       </BottomRow>
       <CartModal
         showModal={showModal}
-        setShowModal={setShowModal}
         deleteAll={deleteAll}
         noChange={noChange}
       />

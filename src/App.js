@@ -61,20 +61,7 @@ function App() {
 
     setCart(newCart.filter((item) => item.count > 0));
   };
-  const [showModal, setShowModal] = useState(false);
-  const modalTrigger = () => {
-    setShowModal((prev) => !prev);
-  };
-  const deleteAll = () => {
-    setCart([]);
-    setShowModal((prev) => !prev);
-  };
-  const noChange = () => {
-    setShowModal(false);
-  };
-
   console.log(".............", cart);
-
   return (
     <Router>
       <Menu
@@ -91,15 +78,7 @@ function App() {
           <Products addToCart={addToCart} />
         </Route>
         <Route path="/cart">
-          <Cart
-            deleteAll={deleteAll}
-            noChange={noChange}
-            showModal={showModal}
-            setShowModal={setShowModal}
-            cart={cart}
-            removeFromCart={removeFromCart}
-            modalTrigger={modalTrigger}
-          />
+          <Cart cart={cart} removeFromCart={removeFromCart} setCart={setCart} />
         </Route>
       </Switch>
     </Router>
