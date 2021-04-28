@@ -10,14 +10,14 @@ import {
   ClearCart,
 } from "./styled";
 
-const Cart = ({ cart, removeFromCart, removeAll }) => {
+const Cart = ({ cart, removeFromCart, removeAll,addToCart }) => {
   const [showPop, setShowPop] = useState(false);
   if (!cart || !cart.length) {
     return <EmptyCart>No item in the cart</EmptyCart>;
   }
 
   const cartItems = cart.map((item) => (
-    <CartItem key={item.id} product={item} removeFromCart={removeFromCart} />
+    <CartItem key={item.id} product={item} addTocart={addToCart} removeFromCart={removeFromCart} />
   ));
   return (
     <Container>

@@ -9,8 +9,6 @@ const _LOCAL_STORAGE_SHOPPING_CART = "_LOCAL_STORAGE_SHOPPING_CART";
 function App() {
   const [cart, setCart] = useState();
 
-  // always -> componentDidMount
-  // dependencies -> componetDidUpdate
   useEffect(() => {
     if (cart === undefined) {
       const lsCart = window.localStorage.getItem(_LOCAL_STORAGE_SHOPPING_CART);
@@ -23,14 +21,6 @@ function App() {
         JSON.stringify(cart)
       );
     }
-
-    // effect
-    // if Cart is undefined:
-    // 1. check local storage(LS), if there is any information for cart
-    // 2. load cart data from LS
-    // 3. save loaded data to cart(state)
-    //else
-    // 1. save cart to LS
   }, [cart]);
 
   const addToCart = (product) => {
@@ -66,8 +56,6 @@ function App() {
     setCart([]);
   };
 
-  console.log(".............", cart);
-
   return (
     <Router>
       <Menu
@@ -88,6 +76,7 @@ function App() {
             cart={cart}
             removeFromCart={removeFromCart}
             removeAll={removeAll}
+            addToCart={addToCart}
           />
         </Route>
       </Switch>

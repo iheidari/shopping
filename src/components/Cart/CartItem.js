@@ -9,7 +9,8 @@ import {
   Button,
 } from "./styled";
 
-const CartItem = ({ product, removeFromCart }) => {
+const CartItem = ({ product, removeFromCart, addTocart}) => {
+
   return (
     <ProductContainer>
       <div>
@@ -24,6 +25,9 @@ const CartItem = ({ product, removeFromCart }) => {
           ${product.price} * {product.count}
         </Price>
         <Button onClick={() => removeFromCart(product)}>Remove</Button>
+        <hr />
+       <Button onClick={()=> addTocart(product)}>+</Button>
+       <Button onClick={()=> removeFromCart(product)}>-</Button>
       </div>
     </ProductContainer>
   );
