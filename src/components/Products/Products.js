@@ -3,17 +3,6 @@ import Product from "./Product";
 import { Container } from "./styled";
 import axios from "axios";
 
-const mockData = [
-  {
-    id: 1,
-    name: "Pen",
-    image:
-      "https://images-na.ssl-images-amazon.com/images/I/81A%2Bbhs4jkL._AC_SL1500_.jpg",
-    description: "Pen in different colors",
-    price: 5,
-  },
-];
-
 const Products = ({ addToCart }) => {
   const [products, setProducts] = useState([]);
 
