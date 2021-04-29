@@ -8,12 +8,13 @@ import {
   Price,
   Button,
 } from "./styled";
+import emptyImage from "../../resources/images/empty.jpeg";
 
 const Product = ({ product, addToCart }) => {
   return (
     <ProductContainer>
       <div>
-        <Image src={product.image} alt={product.name} />
+        <Image src={product.image || emptyImage} alt={product.name} />
       </div>
       <TextBody>
         <Title>{product.name}</Title>

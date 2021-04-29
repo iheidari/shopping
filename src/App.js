@@ -66,8 +66,6 @@ function App() {
     setCart([]);
   };
 
-  console.log(".............", cart);
-
   return (
     <Router>
       <Menu
