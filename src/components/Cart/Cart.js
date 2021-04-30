@@ -6,29 +6,54 @@ import {
   TotalPrice,
   BottomRow,
   ClearCart,
+  CartImage,
 } from "./styled";
+import image1 from "./image1.jpg";
 
-const Cart = ({ cart, removeFromCart, removeAll }) => {
+const Cart = ({
+  cart,
+  removeFromCart,
+  removeAll,
+  handelClickUp,
+  handelClickDown,
+}) => {
   if (!cart || !cart.length) {
-    return <EmptyCart>No item in the cart</EmptyCart>;
+    return (
+      <div>
+        <CartImage src={image1} alt="cartImage" />
+        <hr />
+        <EmptyCart>No item in the cart</EmptyCart>;
+      </div>
+    );
   }
 
   const cartItems = cart.map((item) => (
-    <CartItem key={item.id} product={item} removeFromCart={removeFromCart} />
+    <CartItem
+      key={item.id}
+      product={item}
+      removeFromCart={removeFromCart}
+      handelClickUp={handelClickUp}
+      handelClickDown={handelClickDown}
+    />
   ));
+
   return (
-    <Container>
-      <CartItems>{cartItems}</CartItems>
-      <BottomRow>
-        <TotalPrice>
-          Total Price: $
-          {cart
-            ? cart.reduce((total, item) => total + item.price * item.count, 0)
-            : 0}
-        </TotalPrice>
-        <ClearCart onClick={removeAll}>Delete All</ClearCart>
-      </BottomRow>
-    </Container>
+    <div>
+      <CartImage src={image1} alt="cartImage" />
+      <hr />
+      <Container>
+        <CartItems>{cartItems}</CartItems>
+        <BottomRow>
+          <TotalPrice>
+            Total Price: $
+            {cart
+              ? cart.reduce((total, item) => total + item.price * item.count, 0)
+              : 0}
+          </TotalPrice>
+          <ClearCart onClick={removeAll}>Delete All</ClearCart>
+        </BottomRow>
+      </Container>
+    </div>
   );
 };
 
