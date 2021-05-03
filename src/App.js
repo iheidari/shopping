@@ -86,6 +86,7 @@ function App() {
             cart={cart}
             removeFromCart={removeFromCart}
             removeAll={removeAll}
+            addToCart={addToCart}
           />
         </Route>
       </Switch>

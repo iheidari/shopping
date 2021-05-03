@@ -1,41 +1,39 @@
 import styled from "styled-components";
 
 export const EmptyCart = styled.div`
-  text-align: center;
-  font-size: 1.75rem;
-  margin: 15px;
-  width: 100%;
+text-align: center;
+font-size: 1.75rem;
+margin: 15px;
+width: 100%;
 `;
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
+ 
 `;
+export const TotalPrice = styled.div`
 
-export const TotalPrice = styled.div``;
-
-export const ClearCart = styled.button`
-  width: 100px;
-  height: 40px;
-  border-radius: 5px;
-  background-color: #ee8899;
-  &:hover {
-    background-color: #eebbbb;
-  }
 `;
-
-export const BottomRow = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 15px;
-`;
-
 export const CartItems = styled.div`
-  display: flex;
+display: flex;
   flex-wrap: wrap;
   flex-direction: row;
 `;
-
+export const  ClearCart = styled.button`
+width: 100px;
+height: 40px;
+border-radius: 5px;
+background-color: #ee8899;
+&:hover {
+  background-color: #eebbbb;
+}
+`;
+export const BottomRow = styled.div`
+display: flex;
+margin: 15px;
+align-items: center;
+justify-content: space-between;
+`;
 export const ProductContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -58,6 +56,10 @@ export const TextBody = styled.div`
 
 export const Title = styled.h3`
   font-size: 24px;
+`;
+export const Text = styled.h1`
+  font-size: 50px;
+  text-align: center;
 `;
 
 export const Description = styled.h5`
