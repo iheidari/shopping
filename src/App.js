@@ -32,7 +32,6 @@ function App() {
     //else
     // 1. save cart to LS
   }, [cart]);
-
   const addToCart = (product) => {
     let isNew = true;
 
@@ -51,6 +50,25 @@ function App() {
     setCart(newCart);
   };
 
+  const handelClickDown = (product) => {
+    const qCart = cart.map((item) => {
+      if (item.id === product.id) {
+        item.count--;
+      }
+      return item;
+    });
+    setCart(qCart.filter((item) => item.count > 0));
+  };
+  const handelClickUp = (product) => {
+    const qCart = cart.map((item) => {
+      if (item.id === product.id) {
+        item.count++;
+      }
+      return item;
+    });
+    setCart(qCart);
+  };
+
   const removeFromCart = (product) => {
     const newCart = cart.map((item) => {
       if (item.id === product.id) {
@@ -58,13 +76,14 @@ function App() {
       }
       return item;
     });
-
     setCart(newCart.filter((item) => item.count > 0));
   };
 
   const removeAll = () => {
     setCart([]);
   };
+
+  console.log(".............", cart);
 
   return (
     <Router>
@@ -86,6 +105,8 @@ function App() {
             cart={cart}
             removeFromCart={removeFromCart}
             removeAll={removeAll}
+            handelClickDown={handelClickDown}
+            handelClickUp={handelClickUp}
           />
         </Route>
       </Switch>
