@@ -11,7 +11,10 @@ export const Container = styled.div`
   flex-direction: column;
 `;
 
-export const TotalPrice = styled.div``;
+export const TotalPrice = styled.div`
+  font-size: 30px;
+  font-weight: bold;
+`;
 
 export const ClearCart = styled.button`
   width: 100px;
@@ -44,7 +47,7 @@ export const ProductContainer = styled.div`
   padding: 15px;
   border: 1px solid gray;
   border-radius: 5px;
-  width: 350px;
+  width: 500px;
   margin: 15px;
 `;
 
@@ -66,14 +69,20 @@ export const Description = styled.h5`
 
 export const Price = styled.div`
   font-size: 20px;
+  font-weight: bold;
 `;
 
 export const Button = styled.button`
   border-radius: 5px;
-  background-color: #2245dd;
-  color: white;
+  background-color: url(&amp;quot;delete-icn.svg&amp;quot;) no-repeat center;
+  color: black;
   padding: 5px 10px;
+  margin: 5px;
   &:hover {
     background-color: #557799;
   }
+`;
+export const CartImage = styled.img`
+  width: 350px;
+  margin: 15px;
 `;
