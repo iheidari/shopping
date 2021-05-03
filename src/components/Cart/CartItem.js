@@ -9,7 +9,12 @@ import {
   Button,
 } from "./styled";
 
-const CartItem = ({ product, removeFromCart }) => {
+const CartItem = ({
+  product,
+  removeFromCart,
+  handelClickDown,
+  handelClickUp,
+}) => {
   return (
     <ProductContainer>
       <div>
@@ -20,11 +25,12 @@ const CartItem = ({ product, removeFromCart }) => {
         <Description>{product.description}</Description>
       </TextBody>
       <div>
-        <Price>
-          ${product.price} * {product.count}
-        </Price>
+        <Button onClick={() => handelClickUp(product)}>+</Button>
+        {product.count}
+        <Button onClick={() => handelClickDown(product)}>-</Button>
         <Button onClick={() => removeFromCart(product)}>Remove</Button>
       </div>
+      <Price>${product.price}</Price>
     </ProductContainer>
   );
 };
