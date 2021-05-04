@@ -37,7 +37,7 @@ const Products = ({ addToCart }) => {
               price: item.fields.price,
               description: item.fields.description,
               image: assets.filter(
-                (asset) => asset.sys.id === item.fields.image.sys.id
+                (asset) => asset.sys.id || item.fields.image.sys.id
               )[0].fields.file.url,
             }))
           );
