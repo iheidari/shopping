@@ -8,7 +8,7 @@ import {
   ClearCart,
   CartImage,
 } from "./styled";
-import image1 from "./image1.jpg";
+import image1 from "../../resources/images/image1.jpg";
 
 const Cart = ({
   cart,
@@ -47,7 +47,9 @@ const Cart = ({
           <TotalPrice>
             Total Price: $
             {cart
-              ? cart.reduce((total, item) => total + item.price * item.count, 0)
+              ? cart
+                  .reduce((total, item) => total + item.price * item.count, 0)
+                  .toFixed(2)
               : 0}
           </TotalPrice>
           <ClearCart onClick={removeAll}>Delete All</ClearCart>
