@@ -3,6 +3,15 @@ import Product from "./Product";
 import { Container } from "./styled";
 import axios from "axios";
 
+const getImage = (assets, item) => {
+  if (item.fields.image) {
+    return assets.filter(
+      (asset) => asset.sys.id === item.fields.image.sys.id
+    )[0].fields.file.url;
+  }
+  return "";
+};
+
 const Products = ({ addToCart }) => {
   const [products, setProducts] = useState([]);
 
@@ -36,9 +45,7 @@ const Products = ({ addToCart }) => {
               name: item.fields.name,
               price: item.fields.price,
               description: item.fields.description,
-              image: assets.filter(
-                (asset) => asset.sys.id === item.fields.image.sys.id
-              )[0].fields.file.url,
+              image: getImage(assets, item),
             }))
           );
         } else {
