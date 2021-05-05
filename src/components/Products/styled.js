@@ -17,7 +17,8 @@ export const ProductContainer = styled.div`
 `;
 
 export const Image = styled.img`
-  width: 150px;
+  /* width: 150px; */
+  width: 100px; height: 100px;
 `;
 
 export const TextBody = styled.div`

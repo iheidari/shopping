@@ -61,11 +61,10 @@ function App() {
 
     setCart(newCart.filter((item) => item.count > 0));
   };
-
+  
   const removeAll = () => {
     setCart([]);
   };
-
   return (
     <Router>
       <Menu
@@ -82,11 +81,11 @@ function App() {
           <Products addToCart={addToCart} />
         </Route>
         <Route path="/cart">
-          <Cart
-            cart={cart}
-            removeFromCart={removeFromCart}
-            removeAll={removeAll}
-          />
+          <Cart cart={cart} removeFromCart={removeFromCart}
+          //  setCart={setCart}
+           removeAll={removeAll} 
+           addToCart={addToCart}
+            />
         </Route>
       </Switch>
     </Router>
