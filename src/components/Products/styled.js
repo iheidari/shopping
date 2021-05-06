@@ -18,6 +18,8 @@ export const ProductContainer = styled.div`
 
 export const Image = styled.img`
   width: 150px;
+  height: 150px;
+  object-fit: cover;
 `;
 
 export const TextBody = styled.div`
