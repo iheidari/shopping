@@ -55,7 +55,8 @@ const Products = ({ addToCart }) => {
     //   });
     axios
       .post(
-        "https://graphql.contentful.com/content/v1/spaces/9n2fjo2f8clh/environments/master?access_token=S5-0jWr40c6N2oBYFe-cLQSnWExciLp4Ma3CaJ4nbyk",
+        process.env.REACT_APP_CONTENTFUL_GRAPHQL_URL +
+          "?access_token=S5-0jWr40c6N2oBYFe-cLQSnWExciLp4Ma3CaJ4nbyk",
         {
           query: `query {
               productCollection {
