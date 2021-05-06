@@ -3,14 +3,14 @@ import Product from "./Product";
 import { Container } from "./styled";
 import axios from "axios";
 
-const getImage = (assets, item) => {
-  if (item.fields.image) {
-    return assets.filter(
-      (asset) => asset.sys.id === item.fields.image.sys.id
-    )[0].fields.file.url;
-  }
-  return "";
-};
+// const getImage = (assets, item) => {
+//   if (item.fields.image) {
+//     return assets.filter(
+//       (asset) => asset.sys.id === item.fields.image.sys.id
+//     )[0].fields.file.url;
+//   }
+//   return "";
+// };
 
 const Products = ({ addToCart }) => {
   const [products, setProducts] = useState([]);
