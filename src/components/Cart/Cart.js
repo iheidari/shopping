@@ -1,4 +1,7 @@
+import { useState } from "react";
 import CartItem from "./CartItem";
+import CartModal from "../Modals/CartModal";
+import { GlobalStyle } from "../Modals/styled";
 import {
   EmptyCart,
   Container,
@@ -17,6 +20,7 @@ const Cart = ({
   handelClickUp,
   handelClickDown,
 }) => {
+  const [showModal, setShowModal] = useState(false);
   if (!cart || !cart.length) {
     return (
       <div>
@@ -52,8 +56,16 @@ const Cart = ({
                   .toFixed(2)
               : 0}
           </TotalPrice>
-          <ClearCart onClick={removeAll}>Delete All</ClearCart>
+          <ClearCart disabled={showModal} onClick={() => setShowModal(true)}>
+            Delete All
+          </ClearCart>
         </BottomRow>
+        <CartModal
+          showModal={showModal}
+          deleteAll={removeAll}
+          noChange={() => setShowModal()}
+        />
+        <GlobalStyle />
       </Container>
     </div>
   );

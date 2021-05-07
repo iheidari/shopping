@@ -70,14 +70,16 @@ function App() {
   };
 
   const removeFromCart = (product) => {
-    const newCart = cart.map((item) => {
-      if (item.id === product.id) {
-        item.count--;
-      }
-      return item;
-    });
-    setCart(newCart.filter((item) => item.count > 0));
+    const cartRemove = cart.filter((item) => item.id !== product.id);
+    setCart(cartRemove);
   };
+
+  //   if (item.id === product.id) {
+  //     item.count--;
+  //   }
+  //   return item;
+  // });
+  // setCart(newCart.filter((item) => item.count > 0));
 
   const removeAll = () => {
     setCart([]);
