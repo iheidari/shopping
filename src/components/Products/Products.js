@@ -53,10 +53,12 @@ const Products = ({ addToCart }) => {
     //       console.log("Error in products request");
     //     }
     //   });
+
     axios
       .post(
         process.env.REACT_APP_CONTENTFUL_GRAPHQL_URL +
-          "?access_token=S5-0jWr40c6N2oBYFe-cLQSnWExciLp4Ma3CaJ4nbyk",
+          "?access_token=" +
+          process.env.REACT_APP_ACCESS_TOKEN,
         {
           query: `query {
               productCollection {
