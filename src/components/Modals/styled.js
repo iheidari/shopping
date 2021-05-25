@@ -9,7 +9,7 @@ export const GlobalStyle = createGlobalStyle`
 }
 `;
 
-export const BackGround = styled.div`
+export const Background = styled.div`
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
@@ -20,10 +20,12 @@ export const BackGround = styled.div`
 `;
 export const ModalContainer = styled.div`
   width: 400px;
-  height: 155px;
+  height: 180px;
   border-radius: 5px;
   background-color: white;
   border: 1px solid white;
+  position: absolute;
+  top: 20%;
 `;
 export const ConfirmRow = styled.div`
   display: flex;

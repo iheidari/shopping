@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 const _LOCAL_STORAGE_SHOPPING_CART = "_LOCAL_STORAGE_SHOPPING_CART";
 
 function App() {
-  const [cart, setCart] = useState();
+  const [cart, setCart] = useState([]);
 
   // always -> componentDidMount
   // dependencies -> componetDidUpdate
@@ -50,23 +50,23 @@ function App() {
     setCart(newCart);
   };
 
-  const handelClickDown = (product) => {
-    const qCart = cart.map((item) => {
+  const decreaseQuantity = (product) => {
+    const quantityCart = cart.map((item) => {
       if (item.id === product.id) {
         item.count--;
       }
       return item;
     });
-    setCart(qCart.filter((item) => item.count > 0));
+    setCart(quantityCart.filter((item) => item.count > 0));
   };
-  const handelClickUp = (product) => {
-    const qCart = cart.map((item) => {
+  const increaseQuantity = (product) => {
+    const quantityCart = cart.map((item) => {
       if (item.id === product.id) {
         item.count++;
       }
       return item;
     });
-    setCart(qCart);
+    setCart(quantityCart);
   };
 
   const removeFromCart = (product) => {
@@ -74,18 +74,9 @@ function App() {
     setCart(cartRemove);
   };
 
-  //   if (item.id === product.id) {
-  //     item.count--;
-  //   }
-  //   return item;
-  // });
-  // setCart(newCart.filter((item) => item.count > 0));
-
   const removeAll = () => {
     setCart([]);
   };
-
-  console.log(".............", cart);
 
   return (
     <Router>
@@ -107,8 +98,8 @@ function App() {
             cart={cart}
             removeFromCart={removeFromCart}
             removeAll={removeAll}
-            handelClickDown={handelClickDown}
-            handelClickUp={handelClickUp}
+            decreaseQuantity={decreaseQuantity}
+            increaseQuantity={increaseQuantity}
           />
         </Route>
       </Switch>
