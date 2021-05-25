@@ -12,8 +12,8 @@ import {
 const CartItem = ({
   product,
   removeFromCart,
-  handelClickDown,
-  handelClickUp,
+  increaseQuantity,
+  decreaseQuantity,
 }) => {
   return (
     <ProductContainer>
@@ -25,9 +25,9 @@ const CartItem = ({
         <Description>{product.description}</Description>
       </TextBody>
       <div>
-        <Button onClick={() => handelClickUp(product)}>+</Button>
+        <Button onClick={() => increaseQuantity(product)}>+</Button>
         {product.count}
-        <Button onClick={() => handelClickDown(product)}>-</Button>
+        <Button onClick={() => decreaseQuantity(product)}>-</Button>
         <Button onClick={() => removeFromCart(product)}>Remove</Button>
       </div>
       <Price>${product.price}</Price>

@@ -79,7 +79,6 @@ const Products = ({ addToCart }) => {
         }
       )
       .then((result) => {
-        console.log(result.data.data.productCollection.items);
         if (result.status === 200) {
           // result.data.data.productCollection.total
           setProducts(

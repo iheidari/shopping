@@ -1,5 +1,5 @@
 import {
-  BackGround,
+  Background,
   ModalContainer,
   ConfirmRow,
   ClearAll,
@@ -12,7 +12,7 @@ const CartModal = ({ showModal, deleteAll, noChange }) => {
   return (
     <>
       {showModal ? (
-        <BackGround>
+        <Background>
           <ModalContainer>
             <ModalTitle>Delete this Stream?</ModalTitle>
             <hr />
@@ -25,7 +25,7 @@ const CartModal = ({ showModal, deleteAll, noChange }) => {
               <RemainAll onClick={noChange}>No</RemainAll>
             </ConfirmRow>
           </ModalContainer>
-        </BackGround>
+        </Background>
       ) : null}
     </>
   );
