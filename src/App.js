@@ -33,34 +33,9 @@ function App() {
     // 1. save cart to LS
   }, [cart]);
 
-  const addToCart = (product) => {
-    let isNew = true;
+  const addToCart = (product) => setCart(AddItemToList(cart, product));
 
-    const newCart = cart
-      ? cart.map((item) => {
-          if (item.id === product.id) {
-            item.count++;
-            isNew = false;
-          }
-          return item;
-        })
-      : [];
-    if (isNew) {
-      newCart.push({ ...product, count: 1 });
-    }
-    setCart(newCart);
-  };
-
-  const removeFromCart = (product) => {
-    const newCart = cart.map((item) => {
-      if (item.id === product.id) {
-        item.count--;
-      }
-      return item;
-    });
-
-    setCart(newCart.filter((item) => item.count > 0));
-  };
+  const removeFromCart = (product) => setCart(RemoveFromCart(cart, product));
 
   const removeAll = () => {
     setCart([]);
