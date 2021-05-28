@@ -22,7 +22,9 @@ const Product = ({ product, addToCart }) => {
       </TextBody>
       <div>
         <Price>${product.price}</Price>
-        <Button onClick={() => addToCart(product)}>Buy</Button>
+        <Button data-testid="buy-button" onClick={() => addToCart(product)}>
+          Buy
+        </Button>
       </div>
     </ProductContainer>
   );
