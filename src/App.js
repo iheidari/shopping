@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 const _LOCAL_STORAGE_SHOPPING_CART = "_LOCAL_STORAGE_SHOPPING_CART";
 
 function App() {
-  const [cart, setCart] = useState();
+  const [cart, setCart] = useState([]);
 
   // always -> componentDidMount
   // dependencies -> componetDidUpdate
@@ -32,7 +32,6 @@ function App() {
     //else
     // 1. save cart to LS
   }, [cart]);
-
   const addToCart = (product) => {
     let isNew = true;
 
@@ -51,15 +50,28 @@ function App() {
     setCart(newCart);
   };
 
-  const removeFromCart = (product) => {
-    const newCart = cart.map((item) => {
+  const decreaseQuantity = (product) => {
+    const quantityCart = cart.map((item) => {
       if (item.id === product.id) {
         item.count--;
       }
       return item;
     });
+    setCart(quantityCart.filter((item) => item.count > 0));
+  };
+  const increaseQuantity = (product) => {
+    const quantityCart = cart.map((item) => {
+      if (item.id === product.id) {
+        item.count++;
+      }
+      return item;
+    });
+    setCart(quantityCart);
+  };
 
-    setCart(newCart.filter((item) => item.count > 0));
+  const removeFromCart = (product) => {
+    const cartRemove = cart.filter((item) => item.id !== product.id);
+    setCart(cartRemove);
   };
 
   const removeAll = () => {
@@ -86,6 +98,8 @@ function App() {
             cart={cart}
             removeFromCart={removeFromCart}
             removeAll={removeAll}
+            decreaseQuantity={decreaseQuantity}
+            increaseQuantity={increaseQuantity}
           />
         </Route>
       </Switch>
