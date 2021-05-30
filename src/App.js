@@ -38,6 +38,30 @@ function App() {
 
   const removeFromCart = (product) => setCart(RemoveFromCart(cart, product));
 
+  const decreaseQuantity = (product) => {
+    const quantityCart = cart.map((item) => {
+      if (item.id === product.id) {
+        item.count--;
+      }
+      return item;
+    });
+    setCart(quantityCart.filter((item) => item.count > 0));
+  };
+  const increaseQuantity = (product) => {
+    const quantityCart = cart.map((item) => {
+      if (item.id === product.id) {
+        item.count++;
+      }
+      return item;
+    });
+    setCart(quantityCart);
+  };
+
+  const removeFromCart = (product) => {
+    const cartRemove = cart.filter((item) => item.id !== product.id);
+    setCart(cartRemove);
+  };
+
   const removeAll = () => {
     setCart([]);
   };
@@ -62,6 +86,8 @@ function App() {
             cart={cart}
             removeFromCart={removeFromCart}
             removeAll={removeAll}
+            decreaseQuantity={decreaseQuantity}
+            increaseQuantity={increaseQuantity}
           />
         </Route>
       </Switch>

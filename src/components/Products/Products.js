@@ -54,8 +54,8 @@ const Products = ({ addToCart }) => {
     //     }
     //   });
 
-    axios
-      .post(
+    const callContentful = async () => {
+      const result = await axios.post(
         process.env.REACT_APP_CONTENTFUL_GRAPHQL_URL +
           "?access_token=" +
           process.env.REACT_APP_ACCESS_TOKEN,
@@ -77,23 +77,24 @@ const Products = ({ addToCart }) => {
               }
             }`,
         }
-      )
-      .then((result) => {
-        if (result.status === 200) {
-          // result.data.data.productCollection.total
-          setProducts(
-            result.data.data.productCollection.items.map((item) => ({
-              id: item.sys.id,
-              name: item.name,
-              price: item.price,
-              description: item.description,
-              image: item.image ? item.image.url : "",
-            }))
-          );
-        } else {
-          console.log("Error in products request");
-        }
-      });
+      );
+
+      if (result.status === 200) {
+        // result.data.data.productCollection.total
+        setProducts(
+          result.data.data.productCollection.items.map((item) => ({
+            id: item.sys.id,
+            name: item.name,
+            price: item.price,
+            description: item.description,
+            image: item.image ? item.image.url : "",
+          }))
+        );
+      } else {
+        console.log("Error in products request");
+      }
+    };
+    callContentful();
   }, []);
 
   const productsComponent = products.map((product) => (
