@@ -40,23 +40,24 @@ export const AddItemToList = (list, newItem) => {
 // };
 
 //.........Removecart
-export const RemoveOneItemFromCart = (List, item) => {
-    return List.reduce((acc, curren) => {
-        if (curren.id === item.id) {
-            if (current.count > 1) {
-                current.count--
-            } else {
-                acc.push(curren)
-            }
-            return acc
-        }
-    }, [])
-    // const newList = List.map((ListItem) => {
-    //     if (listItem.id === item.id) {
-    //         ListItem.count--
+export const RemoveOneItemFromList = (List, item) => {
+    // return List.reduce((acc, curren) => {
+    //     if (curren.id === item.id) {
+    //         if (current.count > 1) {
+    //             current.count--
+    //         } else {
+    //             acc.push(curren)
+    //         }
+    //         return acc
     //     }
-    //     return ListItem
-    // })
+    // }, [])
+    const newList = List.map((ListItem) => {
+        const newlist = { ...ListItem }
+        if (listItem.id === item.id) {
+            newList.count--
+        }
+        return newItem
+    })
 
-    // return newList.filter((ListItem) => ListItem.count > 0)
+    return newList.filter((ListItem) => ListItem.count > 0)
 }
