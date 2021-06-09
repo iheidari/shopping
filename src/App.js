@@ -59,10 +59,10 @@ function App() {
         setCart(quantityCart)
     }
 
-    // const removeFromCart = (product) => {
-    //   const cartRemove = cart.filter((item) => item.id !== product.id);
-    //   setCart(cartRemove);
-    // };
+    const removeFromCart = (product) => {
+      const cartRemove = cart.filter((item) => item.id !== product.id);
+      setCart(cartRemove);
+    };
 
     const removeAll = () => {
         setCart([])

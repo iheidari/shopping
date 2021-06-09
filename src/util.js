@@ -26,38 +26,27 @@ export const AddItemToList = (list, newItem) => {
     return newList
 }
 
-// export const RemoveFromCart = (list, newItem) => {
-//   const newList = list.map((item) => {
-//     if (item.id === newItem.id) {
-//       item.count--;
-//     }
-//     return item;
-//   });
-
-//   newList(newList.filter((item) => item.count > 0));
-
-//   return newList;
-// };
-
-//.........Removecart
-export const RemoveOneItemFromList = (List, item) => {
-    // return List.reduce((acc, curren) => {
-    //     if (curren.id === item.id) {
-    //         if (current.count > 1) {
-    //             current.count--
-    //         } else {
-    //             acc.push(curren)
-    //         }
-    //         return acc
-    //     }
-    // }, [])
-    const newList = List.map((ListItem) => {
-        const newlist = { ...ListItem }
-        if (listItem.id === item.id) {
-            newList.count--
+export const RemoveOneItemFromList = (list, item) => {
+    return list.reduce((acc, current) => {
+        const newItem = { ...current }
+        if (newItem.id === item.id) {
+            if (newItem.count > 1) {
+                newItem.count--
+                acc.push(newItem)
+            }
+        } else {
+            acc.push(newItem)
         }
-        return newItem
-    })
+        return acc
+    }, [])
 
-    return newList.filter((ListItem) => ListItem.count > 0)
+    //   const newList = list.map((listItem) => {
+    //     const newItem = { ...listItem };
+    //     if (newItem.id === item.id) {
+    //       newItem.count--;
+    //     }
+    //     return newItem;
+    //   });
+
+    // return newList.filter((listItem) => listItem.count > 0);
 }
